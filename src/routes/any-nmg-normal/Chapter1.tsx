@@ -12,7 +12,8 @@ function Chapter1() {
   return (
     <Chapter number={1}>
       <Encounter enemies="Security Officer x2" instructions={["Cleave"]} />
-      <Encounter enemies="Security Officer x2" instructions={["Punisher guy to right"]} />
+      <Encounter enemies="Security Officer x2" instructions={["Punisher"]} />
+      <Encounter enemies= "Security Officerx2" instructions={["FLEE"]}/>
       <Menu>
         <BattleSettings
           characters={[
@@ -95,6 +96,7 @@ function Chapter1() {
       />
       <Pick item="Ether" optional />
       <Heal description="Ether x1 Barret" />
+      <Encounter enemies= "Monodrives x3" instructions={["FLEE"]}/>
       <Boss
         name="Guard Scorpion"
         phases={[
