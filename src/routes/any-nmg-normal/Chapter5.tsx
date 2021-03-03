@@ -256,7 +256,7 @@ function Chapter5() {
             "Cloud: Thunder Rear Left, Punisher full, Berserk Front Right (target Rear Right)",
           ],
           [
-            "Cloud: Thunder Rear Right (break)",
+            "Cloud: Thunder Left (break)",
             "Tifa: Barret Thunder, Whirl, Divekick Front Right (break)",
             "Tifa: Whirl, Cloud Thunder, Divekick, Whirl Right Weapon",
             "Cloud: Punisher full Crab, Berserk",
