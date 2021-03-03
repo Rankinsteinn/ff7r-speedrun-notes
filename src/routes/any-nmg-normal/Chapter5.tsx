@@ -15,12 +15,50 @@ import UpgradeWeapons from "../../components/UpgradeWeapons";
 function Chapter5() {
   return (
     <Chapter number={5}>
-      <Pick item="Healing" />
+            <Menu>
+        <Equipment
+          characters={[
+            {
+              name: "Tifa",
+              equipments: [{ name: "Iron Bangle", source: "barret" }],
+            },
+          ]}
+        />
+        <Materia
+          characters={[
+            {
+              name: "Cloud",
+              weapon: [
+                { name: "Fire" },
+                { name: "First Strike", source: "inventory", inputs: ["right"] },
+                { name: "ice"},
+              ],
+              armor: [{ name: "Lightning" }],
+              summon: [{ name: "Ifrit" }],
+            },
+            {
+              name: "Tifa",
+              weapon: [
+                { name: "Fire" },
+                { name: "Ice" },
+              ],
+              armor: [{ name: "Barrier", source: "inventory", inputs: ["right", "up",] }],
+              summon: [{ name: "Empty" }],
+            },
+          ]}
+        />
+      </Menu>
       <Encounter
         enemies="Slug Ray x5"
         instructions={[
           "Punisher full, Berserk, TRIPOLOSKI, Punisher",
           "Cross Slash D/E",
+        ]}
+      />
+      <Encounter
+        enemies="Slug Ray x3"
+        instructions={[
+          "FLEE this fight and next two, until regroup with Barret then menu",
         ]}
       />
       <Pick item="Elixir" optional />
@@ -34,6 +72,19 @@ function Chapter5() {
           ]}
         />
       </Menu>
+      <Encounter
+        enemies="Slug Ray x?"
+        instructions={[
+          "FLEE",
+        ]}
+      />
+      <Encounter
+        enemies="Elite grenadier, guard dog x2, slug ray"
+        instructions={[
+          "Tifa: combo x2, start FLEE, Cloud blizzard elite grenadier (stagger)",
+          "FLEE",
+        ]}
+      /> 
       <Encounter enemies="Wererat x3" instructions={["Tifa: TRIPOLOSKI"]} />
       <Menu>
         <UpgradeWeapons
@@ -43,12 +94,12 @@ function Chapter5() {
               weapons: [{ name: "Iron Blade", upgrade: "Auto - Attack" }],
             },
             {
-              name: "Barret (R2)",
-              weapons: [{ name: "Gatling Gun", upgrade: "Auto - Attack" }],
+              name: "Barret",
+              weapons: [{ name: "Gatling Gun", upgrade: "Auto - Attack"}],
             },
             {
-              name: "Tifa (R2)",
-              weapons: [{ name: "Leather Gloves", upgrade: "Auto - Attack" }],
+              name: "Tifa",
+              weapons: [{ name: "Leather Gloves", upgrade: "Auto - Attac"}],
             },
           ]}
         />
@@ -56,40 +107,14 @@ function Chapter5() {
           characters={[
             {
               name: "Cloud",
-              shortcuts: [{ ability: "Leader" }],
-            },
-          ]}
-        />
-        <Materia
-          characters={[
-            {
-              name: "Cloud",
-              weapon: [
-                { name: "Fire" },
-                { name: "First Strike" },
-                { name: "ATB Boost", source: "tifa" },
+              shortcuts: [
+                {ability: "Leader"},
+                {
+                  shortcut: "circle",
+                  ability: "Blizzard",
+                  inputs: ["down"],
+                }
               ],
-              armor: [{ name: "Ice" }],
-              summon: [{ name: "Ifrit" }],
-            },
-            {
-              name: "Barret",
-              weapon: [
-                { name: "Lightning" },
-                { name: "Wind", source: "inventory", inputs: ["right"] },
-              ],
-              armor: [],
-              summon: [{ name: "Empty" }],
-            },
-            {
-              name: "Tifa",
-              weapon: [
-                { name: "Barrier" },
-                { name: "First Strike" },
-                { name: "" },
-              ],
-              armor: [{ name: "Lightning", source: "cloud" }],
-              summon: [{ name: "Empty" }],
             },
           ]}
         />
@@ -105,20 +130,19 @@ function Chapter5() {
       <Encounter
         enemies="Grashtrike x2"
         instructions={[
-          "Barret: Overcharge, Focused Shot, Divekick A",
-          "Cloud: Berserk, Blizzard B",
+          "Cloud: Dash, Blizzard A",
+          "Barret: Overcharge, Focused Shot, Divekick B",
         ]}
       />
       <Encounter
         enemies="Grashtrike x2, Queen Grashtrike"
         instructions={[
-          "Cloud: Punisher jump, Berserk, Blizzard A",
+          "Cloud: Dash, Blizzard A",
           "Barret: Overcharge B (if they're split)",
-          "Cloud: Punisher full, Operator B",
-          "Cloud: ATB Boost, Divekick, Blizzard Queen (pressure)",
-          "Cloud: Berserk, Focused Shot, Blizzard, Punisher Queen (stagger)",
-          "Tifa: Whirl, Cross Slash",
-          "Barret: Go to exit, Divekick",
+          "Cloud: Punisher full, Bersek B",
+          "Cloud: Blizzard, Tifa Blizzard Queen (pressure)",
+          "Cloud: Focused Shot, Berserk, Punisher, Focused Thrust Queen (stagger)",
+          "Tifa: Whirl, Cross Slash, Go to Exit",
         ]}
       />
       <Pick item="Phoenix Down x3" />
@@ -126,40 +150,49 @@ function Chapter5() {
         enemies="Flametrooper, Security Officer x4"
         instructions={[
           "Cloud: Punisher x3, Berserk Security Officer",
-          "Cloud: ATB Boost, Fire Flametrooper",
-          "Tifa: Whirl, Divekick Flametrooper",
-          "Cloud: Roll, Dash, TRIPOLOSKI Security Officer",
+          "Cloud: Fire Flametrooper, Punisher x4 berserk",
+          "Cloud: Dash, TRIPOLSKI Security Officer",
+          "Cloud: Punisher/Overcharge cleanup",
         ]}
       />
-      <Heal description="Everyone full HP, Cloud 16 MP" />
+      <Heal description="While running down tunnel: Everyone full HP, Cloud 16 MP" />
       <Encounter
         enemies="Flametrooper x2, Sentry Launcher x2"
         instructions={[
-          "Cloud: Dash Right Sentry, ATB Boost",
-          "Barret: Overcharge Right Flame, Cloud Fire Left Flame x2",
-          "Barret: Thunder, Tifa Thunder Right Sentry",
+          "Cloud: Dash Left Sentry",
+          "Barret: Overcharge Left Flame, Cloud Thunder Left Sentry",
+          "Tifa: Whirl Left Sentry x2 (2 ATB), Fire Left Flame x2",
           "Cloud: Berserk, Punisher (1 ATB), Fire Flame, Punisher Sentry/Flame",
-          "Tifa/Barret 1 ATB, Thunder Sentry",
-          "Cloud 1 ATB, Fire Sentry",
+          "Tifa: Whirl/Divekick Sentry",
+          "Cloud/Barret 1 ATB, Thunder Sentry",
         ]}
       />
       <Shop
         name="Vending Machine"
-        sell={["Healing x2"]}
+        sell={[
+          {name: "Healing materia"},
+        ]}
         buy={[
-          { name: "Ether", inputs: ["down", "down", "down"] },
-          { name: "Phoenix Down", inputs: ["down", "down"] },
+          { name: "Hi-Potion x3", inputs: ["down", "down"]},
+          { name: "Ether", inputs: ["down"] },
           { name: "Power Wristguards" },
           { name: "Fire", inputs: ["down", "down"] },
         ]}
       />
       <Bench />
       <Pick item="Lightning" />
+      <Encounter
+        enemies="Elite Security Officer x2"
+        instructions={[
+          "Switch to Berserk",
+          "TRIPOLOSKI, Overcharge, TRIPOLOSKI B, Divekick A",
+        ]}
+      />
       <Menu>
         <Equipment
           characters={[
             {
-              name: "Tifa",
+              name: "Barret",
               equipments: [{ name: "Power Wristguards" }],
             },
           ]}
@@ -167,24 +200,17 @@ function Chapter5() {
         <Materia
           characters={[
             {
-              name: "Cloud",
-              weapon: [
-                { name: "Barrier", source: "tifa" },
-                { name: "First Strike" },
-                { name: "ATB Boost" },
-              ],
-              armor: [{ name: "Lightning", source: "tifa" }],
-              summon: [{ name: "Ifrit" }],
-            },
-            {
               name: "Barret",
               weapon: [
                 { name: "Lightning" },
-                { name: "Wind" },
+                { 
+                  name: "Fire", 
+                  source: "inventory", 
+                  inputs: ["right", "up"] },
                 {
-                  name: "Fire",
+                  name: "Wind",
                   source: "inventory",
-                  inputs: ["right"],
+                  inputs: ["right", "down"],
                 },
               ],
               armor: [],
@@ -194,76 +220,57 @@ function Chapter5() {
               name: "Tifa",
               weapon: [
                 { name: "Fire", source: "cloud" },
-                { name: "First Strike" },
+                { name: "Ice" },
                 {
                   name: "Lightning",
                   source: "inventory",
-                  inputs: ["right"],
+                  inputs: ["right", "down"],
                 },
               ],
-              armor: [{ name: "Ice", source: "cloud" }],
+              armor: [{ name: "Barrier" }],
               summon: [{ name: "" }],
             },
+            {
+              name: "Cloud",
+              weapon: [
+                { name: "Revival", source: "inventory", inputs: ["right"]},
+                { name: "First Strike" },
+                { name: "Ice" },
+              ],
+              armor: [{ name: "Lightning" }],
+              summon: [{ name: "Ifrit" }],
+            },
+
           ]}
         />
       </Menu>
-      <Encounter
-        enemies="Elite Security Officer x2"
-        instructions={[
-          "Switch to Punisher, ATB Boost",
-          "TRIPOLOSKI, Berserk, TRIPOLOSKI B, Divekick A",
-        ]}
-      />
       <Boss
         name="Crab Warden"
         phases={[
           [
-            "Barret: Overcharge Front Left",
-            "Cloud: Berserk Front Left, Thunder Rear Left",
-            "Cloud: Punisher full, Whirl, Berserk, Punisher x4 Front Left",
-            "Cloud: Thunder, Tifa Thunder Rear Left (break)",
+            "Cloud: Berserk, Thunder Rear Right",
+            "Tifa: Whirl Right Front Left",
+            "Cloud: Punisher full, Berserk, Punisher x4 Front Left",
+            "Cloud: Thunder Rear Right, Tifa Thunder Rear Right (break)",
             "Cloud: Punisher x6 Front Left (break, stagger)",
-            "Cloud: Thunder Rear Right, Punisher full, Berserk Front Right (target Rear Right)",
+            "Cloud: Thunder Rear Left, Punisher full, Berserk Front Right (target Rear Right)",
           ],
           [
-            "Cloud: Thunder Rear Right (break)",
-            "Tifa: ATB Boost, Barret Thunder, Whirl, Divekick Front Right (break)",
+            "Cloud: Thunder Left (break)",
+            "Tifa: Barret Thunder, Whirl, Divekick Front Right (break)",
             "Tifa: Whirl, Cloud Thunder, Divekick, Whirl Right Weapon",
-            "Cloud: Punisher full, Barret Thunder, Berserk Crab, Thunder Left Weapon",
-            "Cloud: Punisher full Crab (switch to Generator mid combo)",
+            "Cloud: Punisher full Crab, Berserk",
+            "Cloud: Thunder Left Weapon, Punisher Generator (get lock on right weapon for phase)"
           ],
           [
-            "Barret: Overcharge Right Weapon (Thunder after if still alive)",
-            "Tifa: Unbridled, Cloud Thunder Left Weapon (stagger)",
+            "Barret: Thunder Right Weapon (Break)",
+            "Cloud: Unbridled, Berserk, Thunder Left Weapon (stagger)",
+            "Barret: Overcharge Generator",
             "Tifa: Omni, Whirl, Cloud Thunder, Divekick Generator",
           ],
         ]}
       />
       <Menu>
-        <Materia
-          characters={[
-            {
-              name: "Cloud",
-              weapon: [
-                { name: "Ice", source: "tifa" },
-                { name: "First Strike" },
-                { name: "ATB Boost" },
-              ],
-              armor: [{ name: "Lightning" }],
-              summon: [{ name: "Ifrit" }],
-            },
-            {
-              name: "Tifa",
-              weapon: [
-                { name: "Fire" },
-                { name: "First Strike" },
-                { name: "Lightning" },
-              ],
-              armor: [{ name: "Barrier", source: "cloud" }],
-              summon: [{ name: "" }],
-            },
-          ]}
-        />
         <UpgradeWeapons
           characters={[
             {
@@ -277,6 +284,7 @@ function Chapter5() {
             {
               name: "Tifa",
               shortcuts: [{ ability: "Leader" }],
+    
             },
           ]}
         />

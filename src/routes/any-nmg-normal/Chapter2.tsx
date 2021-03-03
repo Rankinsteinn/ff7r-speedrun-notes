@@ -6,7 +6,8 @@ import Pick from "../../components/Pick";
 function Chapter2() {
   return (
     <Chapter number={2}>
-      <Pick item="Ether" />
+      <Pick item="Ether (After Jessie bombs door)" />
+      <Encounter enemies= "Security Officerx5" instructions={["FLEE (Roll AWAY to fountain)"]}/>
       <Encounter
         enemies="Security Officer x2, Guard Dog"
         instructions={[

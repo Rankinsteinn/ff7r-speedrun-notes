@@ -37,7 +37,39 @@ function Chapter4() {
           ["Roche (9 lightnings)"],
         ]}
       />
+      <Shop
+        name="Vending Machine"
+        sell={[
+          { name: "Healing materia" },
+        ]}
+        buy={[
+          { name: "Ether x1", inputs: ["down", "down"] },
+          { name: "Power Wristguards"},
+          {
+            name: "Fire materia",
+            inputs: ["down"],
+          },
+          {
+            name: "Ice materia",
+            inputs: ["down"],
+          },
+          {
+            name: "Lightning materia",
+            inputs: ["down"],
+          },
+        ]}
+      />
       <Menu>
+      <Equipment
+          characters={[
+            {
+              name: "Tifa",
+              equipments: [
+                { name: "Earrings" },
+              ],
+            },
+          ]}
+        />
         <Materia
           characters={[
             {
@@ -45,14 +77,29 @@ function Chapter4() {
               weapon: [
                 { name: "Fire" },
                 { name: "Deadly Dodge" },
-                {
-                  name: "Lightning",
-                  source: "inventory",
-                  inputs: ["up", "up"],
-                },
+                { name: "Ice"},
               ],
-              armor: [{ name: "Ice" }],
+              armor: [
+                { 
+                        name: "Lightning",
+                        source: "inventory",
+                        inputs: ["right"] }],
               summon: [{ name: "Ifrit", source: "inventory" }],
+            },
+            {
+              name: "Tifa",
+              weapon: [
+                { 
+                  name: "Fire",
+                  source: "inventory",
+                  inputs: ["down", "down"] },
+                {
+                  name: "Ice",
+                  source: "inventory",
+                  inputs: ["up", "up", "up" ] },
+              ],
+              armor: [{ name: ""}],
+              summon: [{ name: "" }],
             },
           ]}
         />
@@ -79,9 +126,28 @@ function Chapter4() {
                   shortcut: "x",
                   ability: "Thunder",
                   inputs: ["down", "down"],
-                },
+                }
               ],
             },
+            {
+              name: "Tifa",
+              shortcuts: [
+                {
+                  shortcut: "x",
+                  ability: "Thunder",
+                  inputs: ["down", "down"]
+                },
+                {
+                  shortcut: "circle",
+                  ability: "Blizzard",
+                  inputs: ["down"],
+                },
+                {
+                  shortcut: "square",
+                  ability: "Fire",
+                }
+              ]
+            }
           ]}
         />
       </Menu>
@@ -157,69 +223,13 @@ function Chapter4() {
         ]}
       />
       <Shop
-        name="Item Shop"
-        sell={[{ name: "Healing" }, { name: "Revival" }]}
-      />
-      <Shop
         name="Chadley"
         buy={[
           { name: "Wind" },
-          { name: "ATB Boost", inputs: ["down", "down"] },
-          { name: "First Strike x2", inputs: ["down"] },
+          { name: "First Strike", inputs: ["down", "down"] },
         ]}
         reset={[{ name: "Iron Blade", inputs: ["down"] }]}
       />
-      <Menu>
-        <Equipment
-          characters={[
-            {
-              name: "Tifa",
-              equipments: [{ name: "Iron Bangle", source: "barret" }],
-            },
-          ]}
-        />
-        <Materia
-          characters={[
-            {
-              name: "Cloud",
-              weapon: [
-                { name: "Fire" },
-                {
-                  name: "First Strike",
-                  source: "inventory",
-                  inputs: ["right"],
-                },
-                { name: "Lightning" },
-              ],
-              armor: [{ name: "Ice" }],
-              summon: [{ name: "Ifrit" }],
-            },
-            {
-              name: "Tifa",
-              weapon: [
-                {
-                  name: "Barrier",
-                  source: "inventory",
-                  inputs: ["up"],
-                },
-                {
-                  name: "First Strike",
-                  source: "inventory",
-                  inputs: ["up"],
-                },
-              ],
-              armor: [
-                {
-                  name: "ATB Boost",
-                  source: "inventory",
-                  inputs: ["square", "right", "up"],
-                },
-              ],
-              summon: [{ name: "Empty" }],
-            },
-          ]}
-        />
-      </Menu>
     </Chapter>
   );
 }

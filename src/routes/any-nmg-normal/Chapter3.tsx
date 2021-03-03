@@ -14,13 +14,8 @@ function Chapter3() {
     <Chapter number={3}>
       <Shop
         name="Item Shop"
-        sell={[
-          { name: "Potion x4" },
-          { name: "Hi-Potion x2", inputs: ["down"] },
-        ]}
         buy={[
-          { name: "Deadly Dodge", inputs: ["up"] },
-          { name: "Lightning", inputs: ["up"] },
+          { name: "Deadly Dodge", inputs: ["up"] }
         ]}
       />
       <Menu>
@@ -90,10 +85,10 @@ function Chapter3() {
               weapon: [
                 { name: "Fire" },
                 { name: "Deadly Dodge" },
-                { name: "Assess", source: "inventory", inputs: ["up", "up"] },
+                { name: "Ice", source: "inventory", inputs: ["down", "down"] },
               ],
               armor: [
-                { name: "Ice", source: "inventory", inputs: ["down", "down"] },
+                { name: "Asses", source: "inventory", inputs: ["up", "up"] },
               ],
               summon: [],
             },
@@ -110,21 +105,10 @@ function Chapter3() {
                   inputs: ["down", "down"],
                 },
                 {
-                  shortcut: "triangle",
-                  ability: "Blizzard",
-                  inputs: ["down"],
-                },
-                {
                   shortcut: "x",
                   ability: "Assess",
                   inputs: ["up", "up"],
                 },
-              ],
-            },
-            {
-              name: "Tifa",
-              shortcuts: [
-                { shortcut: "x", ability: "Thunder", inputs: ["down", "down"] },
               ],
             },
           ]}
